@@ -7,15 +7,15 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 " CTRL-C and CTRL-Insert are Copy
-vnoremap <C-C> "+y
+vnoremap <C-C>      "+y
 vnoremap <C-Insert> "+y
 
 " CTRL-V and SHIFT-Insert are Paste
-map <C-V>		"+gP
-map <S-Insert>		"+gP
+map <C-V>       "+gP
+map <S-Insert>  "+gP
 
-cmap <C-V>		<C-R>+
-cmap <S-Insert>		<C-R>+
+cmap <C-V>        <C-R>+
+cmap <S-Insert>   <C-R>+
 
 " Kill arrows :)
 inoremap  <Up>     <NOP>
@@ -110,5 +110,21 @@ endif
 if has('autocmd')
     autocmd filetype html,xml set listchars-=tab:>.
 endif
+
+" strip whitespace after save
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+" but only python and javascript files
+autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
 
 filetype plugin indent on
