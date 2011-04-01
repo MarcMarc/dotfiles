@@ -1,5 +1,8 @@
-colorscheme molokai
-let g:molokai_original = 0
+" colorscheme molokai
+set background=dark
+colorscheme solarized
+
+"let g:molokai_original = 0
 
 filetype off
 
@@ -27,48 +30,61 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-" ;w for save and so on!
-nnoremap ; :
+function! ToggleBackground()
+    if (g:solarized_style=="dark")
+        let g:solarized_style="light"
+    colorscheme solarized
+else
+    let g:solarized_style="dark"
+    colorscheme solarized
+endif
+endfunction
+command! Togbg call ToggleBackground()
+nnoremap <F5> :call ToggleBackground()<CR>
+inoremap <F5> <ESC>:call ToggleBackground()<CR>a
+vnoremap <F5> <ESC>:call ToggleBackground()<CR>
 
 " Python
-autocmd BufRead *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,from
+autocmd BufRead *.py set cinwords=if,elif,else,for,while,try,except,finally,def,class,from
 autocmd BufRead *.py set expandtab
 autocmd BufRead *.py set softtabstop=4
+
+autocmd BufRead *.py highlight OverLength ctermbg=red ctermfg=white guibg=#1f2629
+" autocmd BufRead *.py match OverLength /\%79v.\+/
 
 let mapleader = "," " change the mapleader from \ to ,
 let python_highlight_all = 1
 
+set expandtab
 set autoindent " always set autoindenting on
-set copyindent " copy the previous indentation on autoindenting
+"" set copyindent " copy the previous indentation on autoindenting
 set tabstop=4 " a tab is four spaces
 set shiftwidth=4
-set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
-set ignorecase " ignore case when searching
-set smartcase " ignore case if search pattern is all lowercase,
-              " case-sensitive otherwise
+"set shiftround " use multiple of shiftwidth when indenting with '<' and '>'
+"set ignorecase " ignore case when searching
+"set smartcase " ignore case if search pattern is all lowercase,
+              "" case-sensitive otherwise
 set smarttab " insert tabs on the start of a line according to
-             " shiftwidth, not tabstop
-set incsearch " show search matches as you type
-set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set showmatch
-set hidden
+             "" shiftwidth, not tabstop
+"set incsearch " show search matches as you type
+"set backspace=indent,eol,start " allow backspacing over everything in insert mode
+"set showmatch
+"set hidden
 set history=1000
 set undolevels=1000 " use many muchos levels of undo
 set wildignore=*.swp,*.bak,*.pyc,*.class
 set title " change the terminal's title
-set clipboard+=unnamed
+"set clipboard+=unnamed
 set number ruler
 set hlsearch
-set cursorline
+"set cursorline
 set encoding=utf8
 set fileencoding=utf8
-set smartcase
+"set smartcase
 set list listchars=tab:»·,trail:·,eol:¬
 
 set nobackup " no backup file
 set noswapfile " no swap
-
-set pastetoggle=<F2> " 
 
 " NERDTree
 noremap <C-E> :NERDTree<CR>
