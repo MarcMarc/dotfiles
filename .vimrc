@@ -1,8 +1,8 @@
-" colorscheme molokai
+colorscheme molokai
 set background=dark
-colorscheme solarized
+" colorscheme solarized
 
-"let g:molokai_original = 0
+let g:molokai_original = 0
 
 filetype off
 
@@ -117,7 +117,7 @@ if has("gui_running")
     " No menus and no toolbar
     set guioptions-=m
     set guioptions-=T
-    set gfn=Liberation\ Mono\ 10
+    set gfn=Monaco:h12
     let g:obviousModeInsertHi = "guibg=Black guifg=White"
 else
     let g:obviousModeInsertHi = "ctermfg=253 ctermbg=16"
