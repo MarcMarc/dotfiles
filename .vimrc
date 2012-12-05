@@ -1,12 +1,5 @@
 colorscheme molokai
-set background=dark
-" colorscheme solarized
-
-let g:molokai_original = 0
-
-filetype off
-
-call pathogen#runtime_append_all_bundles()
+" en#runtime_append_all_bundles()
 call pathogen#helptags()
 
 " CTRL-C and CTRL-Insert are Copy
@@ -19,6 +12,9 @@ map <S-Insert>  "+gP
 
 cmap <C-V>        <C-R>+
 cmap <S-Insert>   <C-R>+
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%80v.\+/
 
 " Kill arrows :)
 inoremap  <Up>     <NOP>
@@ -49,8 +45,8 @@ autocmd BufRead *.py set cinwords=if,elif,else,for,while,try,except,finally,def,
 autocmd BufRead *.py set expandtab
 autocmd BufRead *.py set softtabstop=4
 
-autocmd BufRead *.py highlight OverLength ctermbg=red ctermfg=white guibg=#1f2629
-" autocmd BufRead *.py match OverLength /\%79v.\+/
+autocmd BufRead *.py highlight OverLength ctermbg=red ctermfg=white guibg=#7a7a7a
+autocmd BufRead *.py match OverLength /\%79v.\+/
 
 let mapleader = "," " change the mapleader from \ to ,
 let python_highlight_all = 1
@@ -117,7 +113,9 @@ if has("gui_running")
     " No menus and no toolbar
     set guioptions-=m
     set guioptions-=T
-    set gfn=Monaco:h12
+    set guioptions-=r
+    set guioptions-=L
+    set gfn=Liberation\ Mono\ Regular:h15
     let g:obviousModeInsertHi = "guibg=Black guifg=White"
 else
     let g:obviousModeInsertHi = "ctermfg=253 ctermbg=16"
