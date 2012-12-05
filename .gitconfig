@@ -2,3 +2,9 @@
     ci = commit
     st = status
     co = checkout
+[user]
+	name = MarcMarc
+	email = marek@marcmarc.net
+[color]
+	status = true
+	diff = true
