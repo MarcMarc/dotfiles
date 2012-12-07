@@ -142,3 +142,5 @@ endfunction
 autocmd BufWritePre *.py,*.js :call <SID>StripTrailingWhitespaces()
 
 filetype plugin indent on
+
+syntax on
