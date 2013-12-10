@@ -1,9 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/usr/local/lib/python2.6/dist-packages'
-let g:netrw_dirhist_2='/home/marcmarc/sites/aktywni/repo/test/abcd/pomidor'
-let g:netrw_dirhist_3='/home/marcmarc/sites/aktywni/repo/test/abcd/templatetags'
-let g:netrw_dirhist_4='/home/marcmarc/sites/aktywni/repo/test/abcd/pomidor'
-let g:netrw_dirhist_5='/home/marcmarc/sites/aktywni/repo/sportnet/mailing'
-let g:netrw_dirhist_6='/home/marcmarc/sites/aktywni/repo/sportnet/templates/admin'
-let g:netrw_dirhist_7='/home/marcmarc/supervise/solr-products-master/log/main'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/Users/marcmarc/.virtualenvs/motointegrator/project/motointegrator/motointegrator/contrib/cache'
+let g:netrw_dirhist_2='/Users/marcmarc/.virtualenvs/motointegrator/project/motointegrator/motointegrator/arcades'
